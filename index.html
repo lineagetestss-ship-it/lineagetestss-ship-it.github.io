@@ -48,6 +48,31 @@
             margin-bottom: 40px;
         }
 
+        /* Products */
+        .products {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .product-card {
+            background: #1a1a2e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px 24px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transition: border-color 0.3s;
+        }
+        .product-card:hover { border-color: #7c3aed; }
+        .product-icon { font-size: 2em; }
+        .product-title { font-weight: 700; color: #fff; font-size: 1.05em; }
+        .product-desc { font-size: 0.8em; color: #888; text-align: center; }
+
         /* Links */
         .links {
             display: flex;
@@ -75,6 +100,7 @@
         }
         .telegram { background: #2AABEE; color: #fff; }
         .kakao { background: #FEE500; color: #3C1E1E; }
+        .blog { background: #FF5722; color: #fff; }
         .discord { background: #5865F2; color: #fff; opacity: 0.4; pointer-events: none; }
         .soon { font-size: 0.8em; color: #555; margin-top: -6px; }
 
@@ -187,12 +213,28 @@
         <p class="subtitle">AI Agent Service</p>
         <p class="desc">AI Agent를 통해 서버 관리, 코드 수정, 홈페이지 제작, 커뮤니티 설정까지 자동으로 처리합니다.</p>
 
+        <div class="products">
+            <div class="product-card">
+                <span class="product-icon">📦</span>
+                <span class="product-title">서버팩 판매</span>
+                <span class="product-desc">리니지 프리서버 구축용 서버팩</span>
+            </div>
+            <div class="product-card">
+                <span class="product-icon">🔌</span>
+                <span class="product-title">접속기 판매</span>
+                <span class="product-desc">커스텀 클라이언트 접속기</span>
+            </div>
+        </div>
+
         <div class="links">
             <a href="https://t.me/Leeonlin" class="link-btn telegram" target="_blank">
                 ✈️ Telegram
             </a>
             <a href="https://open.kakao.com/o/sy3jwOli" class="link-btn kakao" target="_blank">
                 💬 KakaoTalk
+            </a>
+            <a href="https://freelineageai.blogspot.com" class="link-btn blog" target="_blank">
+                📝 Blog
             </a>
             <a href="#" class="link-btn discord">
                 🎮 Discord
