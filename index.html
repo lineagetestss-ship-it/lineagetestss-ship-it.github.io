@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Lineage - AI Agent</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        .logo-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 30px rgba(0,150,255,0.3);
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #888;
+            margin-bottom: 16px;
+        }
+        .desc {
+            font-size: 0.95em;
+            color: #666;
+            max-width: 500px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* Links */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 280px;
+            padding: 14px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.05em;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .telegram { background: #2AABEE; color: #fff; }
+        .kakao { background: #FEE500; color: #3C1E1E; }
+        .discord { background: #5865F2; color: #fff; opacity: 0.4; pointer-events: none; }
+        .soon { font-size: 0.8em; color: #555; margin-top: -6px; }
+
+        /* Flow Section */
+        .flow-section {
+            background: #111;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .flow-section h2 {
+            font-size: 1.8em;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .flow-section .flow-sub {
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 0.95em;
+        }
+
+        /* Flow Diagram */
+        .flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .flow-node {
+            background: #1a1a2e;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 20px 32px;
+            width: 100%;
+            max-width: 360px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+        .flow-node:hover {
+            border-color: #4ea8de;
+        }
+        .flow-node .node-icon {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+        .flow-node .node-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .flow-node .node-desc {
+            font-size: 0.85em;
+            color: #888;
+            line-height: 1.4;
+        }
+        .flow-arrow {
+            font-size: 1.6em;
+            color: #4ea8de;
+            padding: 6px 0;
+            user-select: none;
+        }
+
+        /* Center AI node */
+        .flow-center {
+            background: linear-gradient(135deg, #1a1a3e, #2a1a4e);
+            border: 2px solid #7c3aed;
+            box-shadow: 0 0 30px rgba(124,58,237,0.2);
+        }
+        .flow-center .node-title { color: #a78bfa; }
+
+        /* Output branches */
+        .flow-outputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            max-width: 460px;
+            width: 100%;
+        }
+        .flow-outputs .flow-node {
+            max-width: none;
+            padding: 16px 20px;
+        }
+        .flow-outputs .node-icon { font-size: 1.5em; }
+        .flow-outputs .node-title { font-size: 1em; }
+        .flow-outputs .node-desc { font-size: 0.8em; }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8em; }
+            .flow-outputs { grid-template-columns: 1fr; }
+            .link-btn { width: 260px; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #333;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <div class="hero">
+        <img src="logo.jpg" alt="Free Lineage" class="logo-img">
+        <h1>Free Lineage</h1>
+        <p class="subtitle">AI Agent Service</p>
+        <p class="desc">AI Agent를 통해 서버 관리, 코드 수정, 홈페이지 제작, 커뮤니티 설정까지 자동으로 처리합니다.</p>
+
+        <div class="links">
+            <a href="https://t.me/Leeonlin" class="link-btn telegram" target="_blank">
+                ✈️ Telegram
+            </a>
+            <a href="https://open.kakao.com/o/sy3jwOli" class="link-btn kakao" target="_blank">
+                💬 KakaoTalk
+            </a>
+            <a href="#" class="link-btn discord">
+                🎮 Discord
+            </a>
+            <p class="soon">Coming Soon</p>
+        </div>
+    </div>
+
+    <!-- Flow Diagram -->
+    <div class="flow-section">
+        <h2>How It Works</h2>
+        <p class="flow-sub">AI Agent가 하나의 명령으로 모든 것을 자동화합니다</p>
+
+        <div class="flow">
+            <!-- User -->
+            <div class="flow-node">
+                <div class="node-icon">👤</div>
+                <div class="node-title">사용자 명령</div>
+                <div class="node-desc">텔레그램 / 디스코드 / 웹에서 지시</div>
+            </div>
+
+            <div class="flow-arrow">▼</div>
+
+            <!-- AI Agent (center) -->
+            <div class="flow-node flow-center">
+                <div class="node-icon">🤖</div>
+                <div class="node-title">AI Agent</div>
+                <div class="node-desc">분석 → 판단 → 실행 → 검증<br>모든 작업을 자동으로 처리</div>
+            </div>
+
+            <div class="flow-arrow">▼</div>
+
+            <!-- Outputs -->
+            <div class="flow-outputs">
+                <div class="flow-node">
+                    <div class="node-icon">🖥️</div>
+                    <div class="node-title">서버 관리</div>
+                    <div class="node-desc">DB 수정, 설정 변경, 모니터링</div>
+                </div>
+                <div class="flow-node">
+                    <div class="node-icon">⚙️</div>
+                    <div class="node-title">코드 수정</div>
+                    <div class="node-desc">JAR 패치, 버그 수정, 기능 추가</div>
+                </div>
+                <div class="flow-node">
+                    <div class="node-icon">🌐</div>
+                    <div class="node-title">홈페이지 제작</div>
+                    <div class="node-desc">디자인, 배포, 업데이트 자동화</div>
+                </div>
+                <div class="flow-node">
+                    <div class="node-icon">💬</div>
+                    <div class="node-title">커뮤니티 설정</div>
+                    <div class="node-desc">디스코드 봇, 텔레그램 채널 구성</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Free Lineage
+    </footer>
+
+</body>
+</html>
